@@ -3,7 +3,7 @@
 **Loudness Analyzer** は、楽曲の音量感を国際規格（ITU-R BS.1770-4）に基づいて正確に計測するための、ブラウザベースのプロフェッショナルなラウドネスメーターです。
 
 ## 🚀 ライブデモ
-[https://yapan.github.io/loudnessanalyzer/](https://yapan.github.io/loudnessanalyzer/)
+[https://yapanysk.github.io/loudnessanalyzer/](https://yapanysk.github.io/loudnessanalyzer/)
 
 ## ✨ 主な特徴
 - **高精度な計測**: 国際規格（ITU-R BS.1770-4）に準拠した2段階ゲート処理（絶対ゲート・相対ゲート）を実装。
