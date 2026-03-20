@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide - Loudness Analyzer</title>
+    <style>
+        body { 
+            background: #121212; color: #e0e0e0; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.8; padding: 40px; max-width: 800px; margin: auto; 
+        }
+        h1 { border-bottom: 1px solid #333; padding-bottom: 20px; color: #00ff99; font-weight: 300; }
+        h2 { margin-top: 40px; color: #00cc77; font-size: 1.2em; }
+        .spec-box { background: #1a1a1a; padding: 20px; border-left: 4px solid #00ff99; border-radius: 4px; margin: 20px 0; }
+        code { background: #222; padding: 2px 6px; border-radius: 4px; color: #00ff99; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 60px; font-size: 0.8em; color: #555; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Loudness Analyzer <small style="font-size: 0.5em; vertical-align: middle; opacity: 0.6;">v1.0-beta</small></h1>
+    
+    <p>このツールは、楽曲の音量感を国際規格（ITU-R BS.1770-4）に基づいて正確に計測するためのWebアプリケーションです。インストール不要で、ブラウザから即座に使用できます。</p>
+
+    <div class="spec-box">
+        <strong>🔒 プライバシーと安全性について</strong><br>
+        解析処理はすべてお使いのブラウザ内（ローカル）で完結します。音声データがサーバーへアップロードされることは一切ありません。未発表曲や機密性の高い音源も安心して解析いただけます。
+    </div>
+
+    <h2>1. 使い方</h2>
+    <ul>
+        <li><strong>ファイルの投入</strong>: 解析したい音声ファイル（WAV, MP3, M4A等）を画面中央の点線エリアにドラッグ＆ドロップしてください。</li>
+        <li><strong>解析の開始</strong>: ドロップすると自動的に解析が始まります。大きなファイルの場合は数秒かかることがあります。</li>
+        <li><strong>結果の確認</strong>: 画面中央に <code>Integrated LUFS</code>（楽曲全体の平均ラウドネス値）が表示されます。</li>
+        <li><strong>履歴の参照</strong>: 解析した結果は画面下部の「History」にリスト化されます。複数の楽曲を比較する際にご活用ください。</li>
+    </ul>
+
+    <h2>2. 技術仕様</h2>
+    <ul>
+        <li><strong>準拠規格</strong>: ITU-R BS.1770-4</li>
+        <li><strong>計測モード</strong>: Integrated Loudness (全区間平均)</li>
+        <li><strong>ゲート処理</strong>: 絶対ゲート（-70 LKFS）および相対ゲート（-10 dB）を実装</li>
+        <li><strong>対応チャンネル</strong>: モノラル / ステレオ</li>
+    </ul>
+
+    <h2>3. 推奨環境</h2>
+    <ul>
+        <li>最新の Google Chrome, Safari, Microsoft Edge</li>
+        <li>※ <code>file://</code> 形式ではなく、Webサーバー経由でのアクセスを推奨します。</li>
+    </ul>
+
+    <div class="footer">
+        &copy; 2026 YAPAN. Released under the MIT License.
+    </div>
+</body>
+</html>

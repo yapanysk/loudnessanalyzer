@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Loudness Analyzer v1.0-beta</title>
+    <style>
+        body { 
+            background: #121212; 
+            color: #e0e0e0; 
+            /* San Francisco を最優先にする指定 */
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Arial, sans-serif;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            /* 文字のレンダリングをより滑らかにする設定 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        #drop-zone { border: 2px dashed #444; width: 300px; padding: 50px; text-align: center; border-radius: 15px; background: #1a1a1a; cursor: pointer; transition: 0.3s; }
+        #drop-zone.hover { border-color: #00ff99; background: #222; }
+        #result { font-size: 1.5em; color: #00ff99; margin: 30px; font-weight: bold; }
+        #history { width: 300px; border-top: 1px solid #333; padding-top: 20px; }
+        .history-item { display: flex; justify-content: space-between; font-size: 0.8em; padding: 5px 0; border-bottom: 1px solid #222; }
+        .app-title {
+            margin-top: 30px;
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .version {
+            font-size: 0.7em;
+            /* vertical-align: top; */
+            color: #555;
+            background: #222;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+        }
+        
+        footer {
+            margin-top: auto; /* コンテンツが少ない時も下の方に配置 */
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .copyright {
+            font-size: 0.75em;
+            color: #444;       /* 背景に馴染む暗めのグレー */
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .guide-link {
+        margin-bottom: 20px;
+        }
+
+        .guide-link a {
+            color: #00ff99; /* 数値と同じアクセントカラー */
+            text-decoration: none;
+            font-size: 0.9em;
+            border: 1px solid #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .guide-link a:hover {
+            background: rgba(0, 255, 153, 0.1);
+            border-color: #00ff99;
+            box-shadow: 0 0 8px rgba(0, 255, 153, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="app-title">Loudness Analyzer <span class="version">v1.0-beta</span></div>
+    <p></p>
+
+    <div id="drop-zone">
+        <p style="font-size: 1.0em; margin: 0;">Drag and Drop audio files here</p>
+        <p style="font-size: 0.8em; color: #666; margin-top: 10px;">WAV / MP3 / M4A (Local Processing Only)</p>
+    </div>
+    <div id="result">--.- LUFS (Integrated)</div>
+    <div id="history"><div id="history-list"></div></div>
+    <script src="main.js"></script>
+    <footer>
+        <div class="guide-link">
+            <a href="USER_GUIDE.html" target="_blank">📖操作マニュアル・技術仕様</a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 YAPAN. All Rights Reserved.<br>
+            <span style="font-size: 0.9em; opacity: 0.7;">Released under the MIT License</span>
+        </div>
+    </footer>
+
+<script src="main.js"></script>
+</body>
+</html>
