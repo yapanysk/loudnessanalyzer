@@ -1,4 +1,4 @@
-/* Loudness Analyzer v1.0-beta | (c) 2026 hiroyama-icolle */
+/* Loudness Analyzer v1.0-beta | (c) 2026 YAPAN */
 
 const dropZone = document.getElementById('drop-zone');
 const resultDisplay = document.getElementById('result');
@@ -37,14 +37,14 @@ async function analyzeFile(file) {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
         
-        // 昨日の高精度エンジンが期待する「left」「right」形式でデータを抽出
+        // 高精度エンジンが期待する「left」「right」形式でデータを抽出
         const leftData = audioBuffer.getChannelData(0);
         // ステレオでない場合は左をコピーして疑似ステレオとして送る
         const rightData = audioBuffer.numberOfChannels > 1 
             ? audioBuffer.getChannelData(1) 
             : new Float32Array(leftData);
 
-        // 昨日のエンジン専用のメッセージ形式（START_ANALYSIS）で送信
+        // エンジン専用のメッセージ形式（START_ANALYSIS）で送信
         worker.postMessage({
             type: 'START_ANALYSIS',
             payload: {
